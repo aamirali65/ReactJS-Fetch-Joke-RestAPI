@@ -1,9 +1,26 @@
-# React + Vite
+# ReactJS-Fetch-Joke-RestAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-- live link https://aamirali65.github.io/ReactJS-Fetch-Joke-RestAPI/
+A small React app that fetches a joke from a public REST API and shows it, with a loading state while the request is in flight.
 
-Currently, two official plugins are available:
+## How it works
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `useEffect` fires a `fetch` to `https://icanhazdadjoke.com/` on mount, asking for JSON via the `Accept` header
+- The response is held in state and rendered; a failed response renders an error message instead of throwing
+- A spinner from `react-loader-spinner` shows while the request is pending
+
+## Stack
+
+React 18 · Vite · Tailwind CSS · react-loader-spinner
+
+## Running
+
+```bash
+npm install
+npm run dev
+```
+
+Serves on `http://localhost:5173`; `npm run build` writes the production bundle.
+
+## Notes
+
+Written to practise the request lifecycle — loading, success and error — rather than as a joke app. The API call sits directly in `src/App.jsx`, with no data layer.
